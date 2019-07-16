@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Task from './Task';
+import Form from './Form';
 import './TodoList.css';
 
 function TodoList() {
@@ -7,17 +8,25 @@ function TodoList() {
     const [tasks, setTasks] = useState([
         {
             title: "Grab some Pizza",
-            completed: true
         },
         {
             title: "Do your workout",
-            completed: true
         },
         {
             title: "Hangout with friends",
-            completed: false
         }
     ]);
+
+    const addItem = (value) => {
+        const newTasks = [...tasks, {title: value}]
+        setTasks(newTasks)
+    }
+
+    const deleteItem = (index) => {
+        const newTasks = [...tasks];
+        newTasks.splice(index, 1);
+        setTasks(newTasks);
+    }
 
     return (
         <div className="todoListContainer">
@@ -25,10 +34,9 @@ function TodoList() {
                 <h1 className="heading">
                     What are your plans for today?
                 </h1>
-                <form>
-                    <input placeholder="Enter name of the task here 🖊️"/>
-                    <button type="submit"><span role="img" aria-label="OK hand">👌</span></button>
-                </form>
+                <Form 
+                    addItem={addItem}
+                />
             </div>
 
             <div className="main">
@@ -37,6 +45,7 @@ function TodoList() {
                         task={task}
                         index={index}
                         key={index}
+                        deleteItem={deleteItem}
                     />
                 ))}
             </div>
