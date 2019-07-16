@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -16,5 +17,5 @@ code {
   display: flex;
   justify-content: center;
 
-  padding: 50px;
+  padding: 10px 50px 50px 50px;
 }
