@@ -10,6 +10,7 @@ function TodoList() {
                 </h1>
                 <form action="">
                     <input placeholder="Enter name of the task here 🖊️"/>
+                    <button type="submit"><span role="img" aria-label="OK hand">👌</span></button>
                 </form>
             </div>
 
